@@ -1,65 +1,66 @@
 {
   "serverInfo": {
-    "name": "EzBiz Business Intelligence",
-    "description": "AI-powered business intelligence MCP server for Claude, Cursor, Windsurf, and any MCP client. 4 tools: analyze competitors, score web presence (0-100), analyze customer reviews and reputation, conduct market research. Get actionable business insights powered by GPT-4o in real time. Free tier available — 10 API calls/month. Perfect for small business owners, agencies, and consultants. Built by EzBiz Services.",
+    "name": "EzBiz Government Contracting Intelligence",
+    "description": "AI-powered federal contracting intelligence MCP server for Claude, Cursor, Windsurf, and any MCP client. 4 tools: search federal contract opportunities, analyze agency spending, competitor win analysis, set-aside tracking. Real-time SAM.gov, USASpending.gov, and FPDS data powered by GPT-4o. Free tier available — 10 API calls/month. Built for GovCon firms, small business federal contractors, proposal writers, and BD teams. Built by EzBiz Services.",
     "version": "1.0.0",
-    "homepage": "https://mcp.ezbizservices.com",
-    "repository": "https://github.com/ezbiz-services/mcp-business-intelligence",
+    "homepage": "https://govcon.ezbizservices.com",
+    "repository": "https://github.com/sjcripps/mcp-govcon",
     "license": "MIT",
-    "icon": "https://raw.githubusercontent.com/ezbiz-services/mcp-business-intelligence/main/static/icon.svg",
+    "icon": "https://raw.githubusercontent.com/sjcripps/mcp-govcon/main/static/icon.svg",
     "transport": "streamable-http",
-    "endpoint": "https://mcp.ezbizservices.com/mcp"
+    "endpoint": "https://govcon.ezbizservices.com/mcp"
   },
   "tools": [
     {
-      "name": "analyze_competitors",
-      "description": "Analyze the competitive landscape for a business. Returns competitor profiles, market positioning, strengths/weaknesses, and strategic recommendations.",
+      "name": "search_contracts",
+      "description": "Search federal contract opportunities on SAM.gov — filter by NAICS code, set-aside type, agency, dollar range, and keywords. Returns active solicitations with due dates, contact info, and bid requirements.",
       "inputSchema": {
         "type": "object",
-        "required": ["business_name", "industry"],
+        "required": ["query"],
         "properties": {
-          "business_name": { "type": "string", "description": "Name of the business to analyze" },
-          "industry": { "type": "string", "description": "Industry or market sector" },
-          "location": { "type": "string", "description": "Geographic location for local businesses" },
-          "website_url": { "type": "string", "format": "uri", "description": "Business website URL for comparison" }
+          "query": { "type": "string", "description": "Keywords to search for" },
+          "naics": { "type": "string", "description": "NAICS code to filter by" },
+          "set_aside": { "type": "string", "description": "Set-aside type: 8a, HUBZone, SDVOSB, WOSB, SBA, or all" },
+          "agency": { "type": "string", "description": "Federal agency name" }
         }
       }
     },
     {
-      "name": "score_web_presence",
-      "description": "Score a website's online presence (0-100) across SEO, performance, content, social media, and trust signals. Returns detailed breakdown and actionable recommendations.",
+      "name": "analyze_agency",
+      "description": "Analyze a federal agency's spending patterns and contracting behavior — top contractors, spending trends, preferred NAICS codes, contract types, and upcoming opportunities.",
       "inputSchema": {
         "type": "object",
-        "required": ["url"],
+        "required": ["agency"],
         "properties": {
-          "url": { "type": "string", "description": "Website URL to analyze" },
-          "business_name": { "type": "string", "description": "Business name for brand mention analysis" }
+          "agency": { "type": "string", "description": "Federal agency name" },
+          "fiscal_year": { "type": "string", "description": "Fiscal year to analyze" },
+          "naics": { "type": "string", "description": "NAICS code to focus on" }
         }
       }
     },
     {
-      "name": "analyze_reviews",
-      "description": "Analyze a business's online reviews and reputation. Returns sentiment analysis, key themes, strengths, weaknesses, and review management recommendations.",
+      "name": "competitor_win_analysis",
+      "description": "Analyze a competitor's federal contract wins — awarded contracts, agencies they work with, contract values, NAICS codes, and win patterns.",
       "inputSchema": {
         "type": "object",
-        "required": ["business_name"],
+        "required": ["company"],
         "properties": {
-          "business_name": { "type": "string", "description": "Business name to search reviews for" },
-          "location": { "type": "string", "description": "Business location for local search" },
-          "industry": { "type": "string", "description": "Industry context for comparison" }
+          "company": { "type": "string", "description": "Company name to analyze" },
+          "naics": { "type": "string", "description": "NAICS code to filter wins by" },
+          "agency": { "type": "string", "description": "Agency to filter wins by" }
         }
       }
     },
     {
-      "name": "market_research",
-      "description": "Conduct market research on an industry. Returns market size, trends, opportunities, challenges, customer segments, competitive landscape, and strategic recommendations.",
+      "name": "set_aside_tracker",
+      "description": "Track small business set-aside opportunities across federal agencies — 8(a), HUBZone, SDVOSB, WOSB, and SBA set-asides with trending categories and agency compliance.",
       "inputSchema": {
         "type": "object",
-        "required": ["industry"],
+        "required": ["set_aside_type"],
         "properties": {
-          "industry": { "type": "string", "description": "Industry or market to research" },
-          "question": { "type": "string", "description": "Specific question to answer" },
-          "location": { "type": "string", "description": "Geographic focus for the research" }
+          "set_aside_type": { "type": "string", "description": "Set-aside type: 8a, HUBZone, SDVOSB, WOSB, SBA, or all" },
+          "naics": { "type": "string", "description": "NAICS code to filter by" },
+          "agency": { "type": "string", "description": "Agency to filter by" }
         }
       }
     }
@@ -67,7 +68,7 @@
   "authentication": {
     "type": "api-key",
     "header": "X-API-Key",
-    "signupUrl": "https://mcp.ezbizservices.com/signup"
+    "signupUrl": "https://govcon.ezbizservices.com/signup"
   },
   "pricing": {
     "free": { "price": 0, "requestsPerMonth": 10 },

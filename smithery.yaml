@@ -1,0 +1,15 @@
+startCommand:
+  type: http
+configSchema:
+  type: object
+  required:
+    - apiKey
+  properties:
+    apiKey:
+      type: string
+      title: "API Key"
+      description: "Your EzBiz Services API key. Get a free key at https://govcon.ezbizservices.com/signup"
+      x-to:
+        header: x-api-key
+exampleConfig:
+  apiKey: "your-api-key-here"

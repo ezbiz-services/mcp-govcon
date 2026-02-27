@@ -4,6 +4,18 @@
   "title": "EzBiz Government Contracting Intelligence",
   "description": "AI-powered federal contracting intelligence — contract opportunity search, competitor win analysis, agency spending intelligence, and set-aside tracking using SAM.gov, USASpending.gov, and FPDS data.",
   "version": "1.0.0",
+  "websiteUrl": "https://govcon.ezbizservices.com",
+  "icons": [
+    {
+      "src": "https://raw.githubusercontent.com/sjcripps/mcp-govcon/main/static/icon.svg",
+      "mimeType": "image/svg+xml",
+      "sizes": ["200x200"]
+    }
+  ],
+  "repository": {
+    "url": "https://github.com/sjcripps/mcp-govcon",
+    "source": "github"
+  },
   "remotes": [
     {
       "type": "streamable-http",
@@ -11,7 +23,7 @@
       "headers": [
         {
           "name": "x-api-key",
-          "description": "Your EzBiz API key. Get a free key at https://govcon.ezbizservices.com",
+          "description": "Your EzBiz API key. Get a free key at https://govcon.ezbizservices.com/signup",
           "isRequired": true,
           "isSecret": true
         }
