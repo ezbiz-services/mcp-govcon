@@ -2,7 +2,7 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "com.ezbizservices/govcon",
   "title": "EzBiz Government Contracting Intelligence",
-  "description": "AI-powered federal contracting intelligence — contract opportunity search, competitor win analysis, agency spending intelligence, and set-aside tracking using SAM.gov, USASpending.gov, and FPDS data.",
+  "description": "Federal contracting intelligence — contract search, agency spending, competitor wins.",
   "version": "1.0.0",
   "websiteUrl": "https://govcon.ezbizservices.com",
   "icons": [
