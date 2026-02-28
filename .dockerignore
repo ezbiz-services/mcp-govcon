@@ -1,0 +1,5 @@
+node_modules
+data/api-keys.json
+.env
+logs
+.git
