@@ -6,6 +6,10 @@
 
 AI-powered federal procurement intelligence via the [Model Context Protocol (MCP)](https://modelcontextprotocol.io). Give your AI assistant the ability to search federal contracts, analyze agency spending, track competitor wins, and monitor small business set-aside opportunities — all using SAM.gov, USASpending.gov, and FPDS data.
 
+<a href="https://glama.ai/mcp/servers/@ezbiz-services/gov-con">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/@ezbiz-services/gov-con/badge" alt="GovCon MCP server" />
+</a>
+
 ## Tools
 
 | Tool | Description |
